@@ -76,14 +76,14 @@ app.post("/chat", async (req, res) => {
 
   // ✅ SCRAPE ALL PAGES MUCH FASTER
   const allText = await scrapeAllPagesParallel();
-
+  const compactText = allText.replace(/\s+/g, " ").trim();
   const institutionData = `
   St Joseph Convent School, Varanasi — founded in 1950 by Our Lady of Providence.
   The institution serves students from all backgrounds in both English and Hindi medium.
   Current Principal: Sister Arul | Manager: Sister Vimala.
 
   Below is detailed verified information extracted from the official school website:
-  ${allText}
+  ${compactText}
   `;
 
   try {
@@ -94,11 +94,11 @@ app.post("/chat", async (req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "openai/gpt-4o-mini",
         messages: [
           {
             role: "system",
-            content: "You are an intelligent chatbot for St Joseph Convent School, Varanasi. Use the provided scraped data to answer precisely.Dont use *** or double quotes in your answers.",
+            content: "You are an intelligent chatbot for St Joseph Convent School, Varanasi. Use the provided scraped data to answer precisely and informatively.Dont use *** or double quotes in your answers.",
           },
           { role: "system", content: institutionData },
           { role: "user", content: message },
@@ -124,5 +124,4 @@ app.post("/chat", async (req, res) => {
 });
 
 app.listen(5000, () =>
-  console.log("✅ Server running at http://localhost:5000")
-);
+  console.log("✅ Server running at http://localhost:5000"));
