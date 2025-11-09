@@ -1,0 +1,158 @@
+/* Reset and font setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #e8f3ff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Chatbot container */
+.main {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 1s ease;
+}
+
+/* Heading bar */
+.header {
+  background: linear-gradient(135deg, #007bff, #0056d6);
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Chat output area */
+.output {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+/* Chat bubbles */
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 1rem;
+  line-height: 1.5;
+  animation: popIn 0.4s ease;
+  word-wrap: break-word;
+}
+
+/* Bot messages */
+.bot {
+  align-self: flex-start;
+  background: #007bff;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* User messages */
+.user {
+  align-self: flex-end;
+  background: #e6e9f2;
+  color: #222;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input area */
+.input-area {
+  display: flex;
+  padding: 14px;
+  background: #ffffff;
+  border-top: 1px solid #ddd;
+}
+
+textarea {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  color: #222;
+  font-size: 1rem;
+  resize: none;
+  min-height: 50px;
+  max-height: 150px;
+  overflow-y: auto;
+  transition: 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Send button */
+button {
+  margin-left: 12px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #007bff, #0056d6);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #339cff, #0066ff);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.5);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Scrollbar styling */
+.output::-webkit-scrollbar {
+  width: 8px;
+}
+.output::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 6px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

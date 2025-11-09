@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chatbot</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@602&family=Nata+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">St Joseph Convent School Chatbot</div>
+
+      <div class="output" id="chatArea">
+        <div class="message bot">
+          Hello! I am your institution’s AI assistant.
+        </div>
+      </div>
+
+      <div class="input-area">
+        <textarea id="message" placeholder="Type your question..."></textarea>
+        <button onclick="getCompletion()">Send</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
